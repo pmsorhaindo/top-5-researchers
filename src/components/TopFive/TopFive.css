@@ -1,0 +1,10 @@
+.TopFive {
+  flex: 1 0;
+}
+
+.NoResults {
+  display: flex;
+  flex: 1 0;
+  align-items: center;
+  justify-content: center;
+}

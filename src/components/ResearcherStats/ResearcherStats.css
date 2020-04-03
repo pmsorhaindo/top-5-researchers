@@ -1,0 +1,24 @@
+.ResearcherStats {
+  flex: 1 1 auto;
+  border: 1px solid black;
+  min-height: 650px;
+  margin: 10px;
+}
+
+.ResearcherStats--empty {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.rv-xy-plot {
+  margin: auto;
+}
+
+.rv-discrete-color-legend {
+  width: 210px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
