@@ -52,8 +52,8 @@ function ResearcherStats() {
   }));
 
   const legend = [
-    'Publications',
-    'Citations',
+    { title: 'Publications', color: 'blue' },
+    { title: 'Citations', color: 'red' }
   ];
 
   return (
@@ -61,8 +61,8 @@ function ResearcherStats() {
       <XYPlot yDomain={[0, yMax]} height={550} width={450} margin={{ right: 15 }}>
         <XAxis tickValues={years} tickFormat={(t) => t} />
         <YAxis />
-        <LineSeries data={publicationsSeries} />
-        <LineSeries data={citationsSeries} />
+        <LineSeries color="red" data={publicationsSeries} />
+        <LineSeries color="blue" data={citationsSeries} />
         <DiscreteColorLegend orientation="horizontal" width={210} items={legend} />
       </XYPlot>
     </div>
