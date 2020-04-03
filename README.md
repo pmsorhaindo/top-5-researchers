@@ -14,7 +14,7 @@ The code has been split up into the following folders:
   - actions (where the action creators live)
   - reducers (reducers where the next app state is created)
   - selectors (grab specific data from state, used in combination with `react-redux`'s `useSelector` hook)
-  - api (A small express app used to mock api calls, a node server was used to mock the API so with further development things like loading states could be implemented and tested by throttling the network with a browser's developer tools.);
+  - api (A small express app used to mock api calls, a node server was used to mock the API so with further development things like loading states could be implemented and tested by throttling the network with a browser's developer tools)
 
 ## Assumptions
 
