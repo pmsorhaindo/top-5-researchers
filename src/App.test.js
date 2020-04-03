@@ -37,6 +37,6 @@ describe('App', () => {
     renderWithRedux(<App />);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch).toHaveBeenCalledWith('http://localhost:3000/topfive');
+    expect(global.fetch).toHaveBeenCalledWith('http://localhost:3001/topfive');
   })
 })
