@@ -16,6 +16,7 @@ require('../config/env');
 
 
 const fs = require('fs');
+const { exec } = require('child_process');
 const chalk = require('react-dev-utils/chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
@@ -34,6 +35,9 @@ const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
+
+//Run mock server
+exec('node src/api/MockServer.js');
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -142,8 +146,8 @@ checkBrowsers(paths.appPath, isInteractive)
       openBrowser(urls.localUrlForBrowser);
     });
 
-    ['SIGINT', 'SIGTERM'].forEach(function(sig) {
-      process.on(sig, function() {
+    ['SIGINT', 'SIGTERM'].forEach(function (sig) {
+      process.on(sig, function () {
         devServer.close();
         process.exit();
       });
@@ -151,7 +155,7 @@ checkBrowsers(paths.appPath, isInteractive)
 
     if (isInteractive || process.env.CI !== 'true') {
       // Gracefully exit when stdin ends
-      process.stdin.on('end', function() {
+      process.stdin.on('end', function () {
         devServer.close();
         process.exit();
       });
