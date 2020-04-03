@@ -41,12 +41,12 @@ function ResearcherStats() {
   const currentYear = new Date().getFullYear();
   const years = Array.from(Array(5).keys()).reverse().map(i => currentYear - i);
 
-  const publicationsSeries: DataPoint[] = publications.map((_, i) => ({
+  const publicationsSeries: DataPoint[] = publications.map((_: number, i: number) => ({
     y: publications[i],
     x: years[i],
   }));
 
-  const citationsSeries: DataPoint[] = citations.map((_, i) => ({
+  const citationsSeries: DataPoint[] = citations.map((_: number, i: number) => ({
     y: citations[i],
     x: years[i],
   }));

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 import { AppState } from 'reducers';
-import { Researcher as ResearcherType } from '../types';
+import { Researcher as ResearcherType } from 'types';
 import './Researcher.css';
 
 type Props = ResearcherType & { onClick: () => void }

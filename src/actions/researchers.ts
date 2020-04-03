@@ -1,4 +1,4 @@
-import { Researcher } from 'components/TopFive/types';
+import { Researcher } from 'types';
 
 export const SET_TOP_FIVE = 'RESEARCHERS/SET_TOP_FIVE'
 export const CHANGE_RESEARCHER = 'RESEARCHERS/CHANGE_RESEARCHER'

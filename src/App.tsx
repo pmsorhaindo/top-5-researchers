@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setTopFive } from 'actions/researchers';
 import TopFive from 'components/TopFive';
 import ResearcherStats from 'components/ResearcherStats';
-import { Researcher } from 'components/TopFive/types';
+import { Researcher } from 'types';
 import './App.css';
 
 function App() {

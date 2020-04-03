@@ -1,5 +1,5 @@
 import { CHANGE_RESEARCHER, SET_TOP_FIVE, ResearchersActions } from 'actions/researchers';
-import { Researcher } from 'components/TopFive/types';
+import { Researcher } from 'types';
 
 export interface Researchers {
   [id: string]: Researcher;

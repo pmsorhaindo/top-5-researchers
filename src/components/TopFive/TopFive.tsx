@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeResearcher } from 'actions/researchers';
 import { getSortedResearchers } from 'selectors/researchers';
 import Researcher from './Researcher';
-import { Researcher as ResearcherType } from './types';
+import { Researcher as ResearcherType } from 'types';
 import './TopFive.css';
 
 function TopFive() {
