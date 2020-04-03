@@ -1,9 +1,13 @@
 import { createSelector } from 'reselect';
 import { AppState } from 'reducers';
 
+const getResearchers = (state: AppState) => state.researchers.researchers;
+
+export const getSelectedResearcher = (state: AppState) => state.researchers.selectedResearcher;
+
 export const getSortedResearchers =
   createSelector(
-    (state: AppState) => state.researchers.researchers,
+    getResearchers,
     (researchers) => Object.keys(researchers).map((id) => {
       return {
         ...researchers[id],
@@ -25,16 +29,29 @@ export const getSortedResearchers =
     })
   );
 
-export const getSelectedResearcher = (state: AppState) => state.researchers.selectedResearcher;
-export const getHighestPublicationCount = (state: AppState) => Math.max(...(Object.keys(state.researchers.researchers).map((id) => {
-  return Math.max(...state.researchers.researchers[id].publications);
-})));
-export const getHighestCitationCount = (state: AppState) => Math.max(...(Object.keys(state.researchers.researchers).map((id) => {
-  return Math.max(...state.researchers.researchers[id].citations);
-})));
-export const getSelectedPublications = (selectedResearcher?: string) =>
-  (state: AppState) =>
-    selectedResearcher ? state.researchers.researchers[selectedResearcher].publications : undefined;
-export const getSelectedCitations = (selectedResearcher?: string) =>
-  (state: AppState) =>
-    selectedResearcher ? state.researchers.researchers[selectedResearcher].citations : undefined;
+export const getHighestPublicationCount = createSelector(
+  getResearchers,
+  (researchers) =>
+    Math.max(...(Object.keys(researchers).map((id) => {
+      return Math.max(...researchers[id].publications);
+    })))
+);
+
+export const getHighestCitationCount = createSelector(
+  getResearchers,
+  (researchers) => Math.max(...(Object.keys(researchers).map((id) => {
+    return Math.max(...researchers[id].citations);
+  })))
+);
+
+export const getSelectedPublications = (selectedResearcher?: string) => createSelector(
+  getResearchers,
+  (researchers) =>
+    selectedResearcher ? researchers[selectedResearcher].publications : undefined,
+);
+
+export const getSelectedCitations = (selectedResearcher?: string) => createSelector(
+  getResearchers,
+  (researchers) =>
+    selectedResearcher ? researchers[selectedResearcher].citations : undefined,
+);
